@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>最近在追的番</title>
+    <link href="/2026/10/10/my-anime-list/"/>
+    <url>/2026/10/10/my-anime-list/</url>
+    
+    <content type="html"><![CDATA[<p>记录一下最近在看的动画和喜欢的作品。</p><h2 id="正在追"><a href="#正在追" class="headerlink" title="正在追"></a>正在追</h2><ul><li>一部热血番</li><li>一部日常治愈番</li></ul><h2 id="为什么喜欢二次元"><a href="#为什么喜欢二次元" class="headerlink" title="为什么喜欢二次元"></a>为什么喜欢二次元</h2><ul><li>能从故事里获得力量</li><li>认识到很多有趣的人</li><li>是学习之余很好的放松方式</li></ul><p>以后会在这里分享观后感和推荐，欢迎同好交流！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>二次元</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>动漫</tag>
+      
+      <tag>推荐</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我的编程学习之路</title>
+    <link href="/2026/10/10/learning-programming/"/>
+    <url>/2026/10/10/learning-programming/</url>
+    
+    <content type="html"><![CDATA[<p>从这里开始记录我的编程学习之路。</p><h2 id="现在：主攻-Java，C-语言先按下暂停"><a href="#现在：主攻-Java，C-语言先按下暂停" class="headerlink" title="现在：主攻 Java，C 语言先按下暂停"></a>现在：主攻 Java，C 语言先按下暂停</h2><p>一开始我是从 <strong>C 语言</strong>入门的，它帮我理解了变量、循环、函数、内存这些底层概念。最近我把重心转到了 <strong>Java</strong>——不是 C 不好，而是想在「面向对象 + 工程实践」这条路上先走一段。C 暂时按下暂停，等需要时再回来补。</p><h2 id="学习路线（大致走了一遍）"><a href="#学习路线（大致走了一遍）" class="headerlink" title="学习路线（大致走了一遍）"></a>学习路线（大致走了一遍）</h2><ol><li><strong>基础语法</strong>：变量 &#x2F; 运算符 &#x2F; 分支 &#x2F; 方法 &#x2F; 数组</li><li><strong>面向对象</strong>：封装、构造方法、<code>final</code>、枚举 → 继承（extends &#x2F; 重写 &#x2F; super）→ 多态（instanceof &#x2F; 强制类型转换）→ 抽象类 &#x2F; 接口 &#x2F; 内部类</li><li><strong>常用 API</strong>：<code>String</code>、<code>StringBuilder</code>、<code>ArrayList</code>，以及 <code>System</code> &#x2F; <code>Object</code> &#x2F; 包装类（<code>BigInteger</code>、<code>BigDecimal</code>）</li><li><strong>综合练习</strong>：一个控制台「文字格斗游戏」的登录 &#x2F; 注册模块，把学过的串起来</li><li><strong>算法</strong>：二分查找、分块查找，冒泡 &#x2F; 选择 &#x2F; 插入 &#x2F; 快速排序，以及递归</li></ol><h2 id="最近踩的坑（都是真金白银换来的）"><a href="#最近踩的坑（都是真金白银换来的）" class="headerlink" title="最近踩的坑（都是真金白银换来的）"></a>最近踩的坑（都是真金白银换来的）</h2><p><strong>1. <code>find()</code> 是「消费式」的</strong><br>正则里 <code>while (m.find())</code> 才是正确写法；循环前千万别多调一次 <code>find()</code>，否则第一个匹配会被悄悄吞掉。想「匹配但不消耗」，用前瞻 <code>(?=...)</code>。</p><p><strong>2. 报错位置会骗人</strong><br>写分块查找时，类的大括号提前闭合，方法掉到了类外面；JDK 25 把它当成「紧凑源文件」解析，结果报错指向<strong>第 1 行</strong>（”压缩源文件不应有程序包声明”），和真实原因八竿子打不着。教训：<strong>报错位置离谱时，先数括号。</strong></p><p><strong>3. 边界 bug 最阴险</strong><br>查 48 总是提示「没有你要查找的元素」，因为循环写的是 <code>i &lt; endIndex</code>，漏掉了块的最后一位；改成 <code>&lt;=</code> 才对。而查 50 却正常——因为 50 恰好不在边界上。这种「时灵时不灵」的错最难查。</p><p><strong>4. 递归先写出口</strong><br>出口要在<strong>第一行</strong>、条件用 <code>i &gt;= j</code>（把「空区间」和「单元素」都挡住）。出口忘了写或位置不对，就是 <code>StackOverflowError</code> 或数组越界。</p><p><strong>5. 溢出是静默的</strong><br><code>int</code> 装不下 13! 以上的阶乘。<code>gatFactorial(20)</code> 打印出来是 <strong>-2102132736</strong>——Java 只保留结果低 32 位，再按补码读。数值计算前先问一句：「这个类型装得下吗？」</p><h2 id="调试方法论（这段最值钱）"><a href="#调试方法论（这段最值钱）" class="headerlink" title="调试方法论（这段最值钱）"></a>调试方法论（这段最值钱）</h2><ol><li><strong>改一处、马上重跑</strong>：错误是层层揭开的，一次改三处就分不清是谁的锅。</li><li><strong>用标准答案对照</strong>：拿 <code>Arrays.sort</code>、Python 的 <code>math.factorial</code> 当参照物，比肉眼看快得多。</li><li><strong>先看异常栈</strong>：某一行重复几百次 &#x3D; 无限递归；指向 <code>arr[i]</code> 的那行 &#x3D; 真正越界的地方。</li><li><strong>边界用例</strong>：空数组、单元素、两个元素、全相同、已有序、完全倒序。</li></ol><h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><ul><li>基础要懂，但不必死背；重点是<strong>读代码、调试和判断</strong>的能力。</li><li>AI 可以帮我写初稿，但<strong>理解每一行为什么这么写</strong>，才是真正学到手的部分。</li><li>面向对象不是背概念，而是用 <code>private</code> &#x2F; getter &#x2F; setter 把「能改」和「不能改」区分开。</li></ul><blockquote><p>更快一点吧，再快点。</p></blockquote><p>后面会持续更新 Java 学习笔记。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>编程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>学习</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>你好，世界</title>
+    <link href="/2026/10/10/hello-world/"/>
+    <url>/2026/10/10/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>欢迎来到我的博客 👋</p><p>这是我搭的第一个博客，以后会在这里记录学习与生活。</p><h2 id="这个博客用到的技术栈"><a href="#这个博客用到的技术栈" class="headerlink" title="这个博客用到的技术栈"></a>这个博客用到的技术栈</h2><ul><li><strong>静态站点框架</strong>：<a href="https://hexo.io/">Hexo</a> 7.0.0 —— 把 Markdown 文章生成静态网页</li><li><strong>主题</strong>：<a href="https://hexo.fluid-dev.com/">Fluid</a> 1.9.9 —— 负责界面、布局和样式</li><li><strong>运行环境 &amp; 包管理</strong>：Node.js 24 + npm &#x2F; pnpm</li><li><strong>评论 &amp; 点赞</strong>：<a href="https://giscus.app/">giscus</a> —— 基于 GitHub Discussions，评论数据存在我的 GitHub 仓库里</li><li><strong>内容格式</strong>：Markdown（<code>.md</code>）</li><li><strong>版本管理</strong>：Git + GitHub（账号 <code>theotherDancer</code>）</li><li><strong>部署</strong>：计划用 GitHub Pages</li></ul><h2 id="写作流程"><a href="#写作流程" class="headerlink" title="写作流程"></a>写作流程</h2><ol><li><code>hexo new &quot;标题&quot;</code> 新建文章</li><li>用 Markdown 写内容</li><li><code>hexo generate</code> 生成静态站点</li><li><code>hexo server</code> 本地预览</li></ol><h2 id="为什么写博客"><a href="#为什么写博客" class="headerlink" title="为什么写博客"></a>为什么写博客</h2><ul><li>记录成长，回头看能看见自己的变化</li><li>把学过的东西讲清楚，才算真的学会</li><li>遇见同路人，互相交流</li></ul><h2 id="接下来想做的事"><a href="#接下来想做的事" class="headerlink" title="接下来想做的事"></a>接下来想做的事</h2><ol><li>完善「关于我」页面</li><li>整理一篇学习笔记</li><li>坚持更新</li></ol><blockquote><p>种一棵树最好的时间是十年前，其次是现在。</p></blockquote><p>感谢你来过。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活日常</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开始</tag>
+      
+      <tag>随笔</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

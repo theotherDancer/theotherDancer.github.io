@@ -1,0 +1,5 @@
+/* 全站背景：使用本机桌面壁纸 */
+body {
+  background: url('/images/wallpaper.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
